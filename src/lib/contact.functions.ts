@@ -45,10 +45,9 @@ const escapeHtml = (value: string) =>
 export const sendContactEnquiry = createServerFn({ method: "POST" })
   .inputValidator((input: ContactFormData) => contactSchema.parse(input))
   .handler(async ({ data }) => {
-    const lovableApiKey = process.env["LOVABLE_API_KEY"];
     const resendApiKey = process.env["RESEND_API_KEY"];
 
-    if (!lovableApiKey || !resendApiKey) {
+    if (!resendApiKey) {
       throw new Error("Email delivery is not configured.");
     }
 
@@ -56,28 +55,67 @@ export const sendContactEnquiry = createServerFn({ method: "POST" })
       Object.entries(data).map(([key, value]) => [key, escapeHtml(value)]),
     ) as Record<keyof ContactFormData, string>;
 
-    const response = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
+    const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${lovableApiKey}`,
-        "X-Connection-Api-Key": resendApiKey,
+        Authorization: `Bearer ${resendApiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Northstar Digital <onboarding@resend.dev>",
+        from: "Modren Digital <onboarding@resend.dev>",
         to: ["supportweb329@gmail.com"],
         reply_to: data.email,
         subject: `New ${data.projectType} enquiry from ${data.name}`,
         html: `
-          <h1>New project enquiry</h1>
-          <p><strong>Name:</strong> ${safe.name}</p>
-          <p><strong>Email:</strong> ${safe.email}</p>
-          <p><strong>Phone:</strong> ${safe.phone || "Not provided"}</p>
-          <p><strong>Company:</strong> ${safe.company || "Not provided"}</p>
-          <p><strong>Project type:</strong> ${safe.projectType}</p>
-          <p><strong>Budget:</strong> ${safe.budget}</p>
-          <p><strong>Message:</strong></p>
-          <p>${safe.message.replace(/\n/g, "<br />")}</p>
+          <div style="background:#f4f4f5;padding:32px 16px;font-family:Helvetica,Arial,sans-serif;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e4e4e7;">
+              <tr>
+                <td style="background:#111113;padding:24px 28px;">
+                  <p style="margin:0;color:#ffffff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;">Modren Digital</p>
+                  <h1 style="margin:6px 0 0;color:#ffffff;font-size:20px;font-weight:600;">New project enquiry</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:24px 28px 8px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#71717a;font-size:13px;width:110px;">Name</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#111113;font-size:14px;font-weight:500;">${safe.name}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#71717a;font-size:13px;">Email</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#111113;font-size:14px;font-weight:500;"><a href="mailto:${safe.email}" style="color:#111113;text-decoration:none;">${safe.email}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#71717a;font-size:13px;">Phone</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#111113;font-size:14px;font-weight:500;">${safe.phone || "Not provided"}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#71717a;font-size:13px;">Company</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#111113;font-size:14px;font-weight:500;">${safe.company || "Not provided"}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#71717a;font-size:13px;">Project type</td>
+                      <td style="padding:10px 0;border-bottom:1px solid #f0f0f1;color:#111113;font-size:14px;font-weight:500;">${safe.projectType}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px 0;color:#71717a;font-size:13px;">Budget</td>
+                      <td style="padding:10px 0;color:#111113;font-size:14px;font-weight:500;">${safe.budget}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:4px 28px 28px;">
+                  <p style="margin:16px 0 8px;color:#71717a;font-size:13px;">Message</p>
+                  <div style="background:#f9f9fa;border:1px solid #f0f0f1;border-radius:8px;padding:14px 16px;color:#111113;font-size:14px;line-height:1.6;">
+                    ${safe.message.replace(/\n/g, "<br />")}
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <p style="max-width:520px;margin:16px auto 0;color:#a1a1aa;font-size:12px;text-align:center;">Sent from the Modren Digital contact form.</p>
+          </div>
         `,
       }),
     });

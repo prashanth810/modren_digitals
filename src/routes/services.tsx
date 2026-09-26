@@ -5,13 +5,13 @@ import { services, technologies } from "@/data/site";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Web Development & Digital Solutions | Northstar Digital" },
+      { title: "Web Development & Digital Solutions | Modren Digital" },
       {
         name: "description",
         content:
           "Web development, frontend engineering, full-stack systems, UI/UX and custom business platforms.",
       },
-      { property: "og:title", content: "Services | Northstar Digital" },
+      { property: "og:title", content: "Services | Modren Digital" },
       {
         property: "og:description",
         content: "Design and engineering services that turn ideas into useful digital products.",

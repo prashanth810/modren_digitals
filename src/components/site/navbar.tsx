@@ -18,7 +18,7 @@ export function Navbar() {
   return (
     <header className={`site-nav ${scrolled ? "site-nav--solid" : ""}`}>
       <div className="shell flex h-20 items-center justify-between">
-        <Link to="/" className="brand-mark" aria-label="Northstar Digital home">
+        <Link to="/" className="brand-mark" aria-label="Modren Digital home">
           <div className="brand-mark brand-mark--footer">
             <img src={brand.logo} alt={brand.name} className="h-16 w-auto object-contain" />
           </div>

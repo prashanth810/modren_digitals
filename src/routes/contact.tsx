@@ -6,13 +6,13 @@ import { brand } from "@/data/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Northstar Digital | Start Your Project" },
+      { title: "Contact Modren Digital | Start Your Project" },
       {
         name: "description",
         content:
-          "Discuss your website, web application, interface, or business platform with Northstar Digital.",
+          "Discuss your website, web application, interface, or business platform with Modren Digital.",
       },
-      { property: "og:title", content: "Start a Project | Northstar Digital" },
+      { property: "og:title", content: "Start a Project | Modren Digital" },
       {
         property: "og:description",
         content:
