@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         <div className="footer-wordmark" aria-label={`${brand.shortName} ${brand.name}`}>
-          <strong className="footer-wordmark__name">{brand.name}</strong>
+          <strong className="footer-wordmark__name">{"MODREN DIGITALS"}</strong>
         </div>
       </div>
     </footer>

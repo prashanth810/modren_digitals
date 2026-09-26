@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Check, MoveUpRight } from "lucide-react";
-import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
+import { animate, motion, useInView, useMotionValue, useTransform } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { CTASection, Reveal, SectionHeading } from "@/components/site/primitives";
 import { HeroScene } from "@/components/three/hero-scene";
@@ -22,6 +23,28 @@ export const Route = createFileRoute("/")({
   }),
   component: HomePage,
 });
+
+function AnimatedStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const count = useMotionValue(0);
+  const formattedCount = useTransform(count, (latest) => `${Math.round(latest)}${suffix}`);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const controls = animate(count, value, { duration: 1.5, ease: "easeOut" });
+    return () => controls.stop();
+  }, [count, isInView, value]);
+
+  return (
+    <div className="stat" ref={ref}>
+      <motion.strong>{formattedCount}</motion.strong>
+      <span>{label}</span>
+    </div>
+  );
+}
+
 function HomePage() {
   return (
     <>
@@ -81,8 +104,6 @@ function HomePage() {
             className="hero-canvas"
           >
             <HeroScene />
-            <div className="canvas-label top-5 left-5">DIGITAL CORE / 01</div>
-            <div className="canvas-label right-5 bottom-5">POINTER REACTIVE</div>
           </motion.div>
           <div className="scroll-cue">
             <ArrowDown /> Scroll to explore
@@ -92,15 +113,12 @@ function HomePage() {
       <section className="stats-band">
         <div className="shell grid sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["2+", "Years experience"],
-            ["20+", "Projects delivered"],
-            ["10+", "Technologies"],
-            ["100%", "Client focus"],
-          ].map(([n, l]) => (
-            <div className="stat" key={l}>
-              <strong>{n}</strong>
-              <span>{l}</span>
-            </div>
+            { value: 2, suffix: "+", label: "Years experience" },
+            { value: 20, suffix: "+", label: "Projects delivered" },
+            { value: 10, suffix: "+", label: "Technologies" },
+            { value: 100, suffix: "%", label: "Client focus" },
+          ].map((stat) => (
+            <AnimatedStat key={stat.label} {...stat} />
           ))}
         </div>
       </section>
@@ -139,12 +157,12 @@ function HomePage() {
         <div className="shell">
           <Reveal>
             <SectionHeading
-              label="Selected work / 02"
+              label=""
               title="Proof, not promises"
               copy="Representative product directions ready to be replaced with your real case studies."
             />
           </Reveal>
-          <div className="mt-14 grid gap-6 lg:grid-cols-12">
+          <div className="mt-14 grid grid gap-6 lg:grid-cols-12">
             {projects.map((project, i) => (
               <Reveal
                 key={project.name}
@@ -152,10 +170,22 @@ function HomePage() {
               >
                 <div className={`project-visual project-visual--${project.tone}`}>
                   <div className="project-window">
+                    {/* <span />
                     <span />
                     <span />
-                    <span />
-                    <div className="project-ui" />
+                    <div className="project-ui" /> */}
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit ${project.name} website (opens in a new tab)`}
+                    >
+                      <img
+                        src={project.logo}
+                        alt={project.name}
+                        className="h-full w-auto object-contain"
+                      />
+                    </a>
                   </div>
                   <span className="project-index">{project.index}</span>
                 </div>
@@ -179,7 +209,7 @@ function HomePage() {
       <section className="section">
         <div className="shell">
           <Reveal>
-            <SectionHeading label="Method / 03" title="How I work" />
+            <SectionHeading label="" title="How I work" />
           </Reveal>
           <div className="process-line mt-14">
             {process.map((step) => (
@@ -197,7 +227,7 @@ function HomePage() {
         <div className="shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <Reveal>
             <SectionHeading
-              label="The difference / 04"
+              label=""
               title="Built with intent. Delivered with care."
               copy="Good digital work is not decoration. It clarifies, earns confidence, and moves the business."
             />

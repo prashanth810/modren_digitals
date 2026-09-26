@@ -474,7 +474,7 @@
   height: 100%;
   border: 1px solid var(--deep-border);
   background: var(--surface-deep);
-  padding: 1rem;
+  padding: 0px 1rem;
   transition: .5s;
   box-shadow: 0 30px 60px oklch(0 0 0/.25)
 }
@@ -1101,7 +1101,7 @@
 
 .footer-wordmark__name {
   color: #212121;
-  letter-spacing: 20px;
+  letter-spacing: 14px;
 }
 
 @media (max-width: 767px) {

@@ -13,6 +13,10 @@ import {
   Workflow,
 } from "lucide-react";
 import logo from "../data/brand.png";
+import projectlogo from "../data/sura-delice.png";
+import rakzsstudio from "../data/rakzsstudio.png";
+import cocktail from "../data/cocktail.png";
+import theroyalplalace from "../data/theroyalplalace.png";
 
 export const brand = {
   name: "Modren Digital",
@@ -86,11 +90,11 @@ export const pricingPlans = [
 export const services = [
   {
     number: "01",
-    title: "Web Development",
+    title: "Web Design",
     icon: Globe2,
     description:
       "Fast, expressive websites engineered to turn attention into measurable business momentum.",
-    tags: ["React", "Tailwind", "Node.js"],
+    tags: ["React", "Tailwind"],
     items: [
       "Business websites",
       "Landing pages",
@@ -107,7 +111,7 @@ export const services = [
     icon: PanelsTopLeft,
     description:
       "Polished interfaces with thoughtful systems, fluid interactions, and excellent performance.",
-    tags: ["TypeScript", "React", "Redux"],
+    tags: ["javascript", "React Js", "Redux Toolkit"],
     items: [
       "React applications",
       "Responsive interfaces",
@@ -127,7 +131,7 @@ export const services = [
     icon: Braces,
     description:
       "Dependable products spanning intuitive interfaces, secure services, and scalable data layers.",
-    tags: ["Node.js", "Express", "MongoDB"],
+    tags: ["Node.js", "Express Js", "React js", "MongoDB"],
     items: [
       "REST APIs",
       "Authentication",
@@ -143,11 +147,11 @@ export const services = [
   },
   {
     number: "04",
-    title: "UI/UX & Product Experience",
+    title: "UI/UX Design",
     icon: DraftingCompass,
     description:
       "Clear product journeys and distinctive visual systems grounded in real user and business needs.",
-    tags: ["UX Strategy", "Design Systems", "Prototyping"],
+    tags: ["UX Strategy", "Design Systems", "Prototyping", "Stitch"],
     items: [
       "Modern interface design",
       "Responsive layouts",
@@ -166,27 +170,47 @@ export const services = [
 export const projects = [
   {
     index: "01",
-    name: "Orbit Operations",
-    category: "Business Management Platform",
-    description: "A unified command center for teams, workflows, and operational insight.",
-    stack: ["React", "Node.js", "MongoDB"],
+    name: "Sura Delice",
+    logo: projectlogo,
+    link: "https://sura-delice.vercel.app/",
+    category: "Fine Dining & Hospitality Web App",
+    description:
+      "An interactive culinary platform with seamless table bookings, curated menus, and guest experience workflows.",
+    stack: ["React.js", "Redux", "Node.js", "MongoDB"],
     tone: "signal",
   },
   {
     index: "02",
-    name: "Aperture Commerce",
-    category: "E-commerce Platform",
-    description: "A conversion-led retail experience built for speed, clarity, and scale.",
-    stack: ["TypeScript", "Payments", "Analytics"],
-    tone: "ember",
+    name: "RAKZS STUDIO",
+    logo: rakzsstudio,
+    link: "https://rakzs-studio.vercel.app/",
+    category: "Photography & Cinema Portfolio Platform",
+    description:
+      "An elegant, editorial web experience showcasing wedding photography, cinema, and seamless client inquiry bookings.",
+    stack: ["React", "Tailwind CSS", "Framer Motion", "Node.js"],
+    tone: "signal",
   },
   {
     index: "03",
-    name: "Gather",
-    category: "Service Marketplace",
-    description: "A trusted two-sided marketplace connecting specialists with ambitious clients.",
-    stack: ["React", "APIs", "Cloud"],
-    tone: "mint",
+    name: "Cocktail",
+    logo: cocktail,
+    link: "https://mocktails-three.vercel.app/",
+    category: "Cocktail Bar & Lounge Landing Experience",
+    description:
+      "An immersive, modern landing page featuring premium mixology showcases, interactive drink menus, and bespoke summer visuals.",
+    stack: ["React", "Tailwind CSS", "Framer Motion", "JavaScript"],
+    tone: "signal",
+  },
+  {
+    index: "04",
+    name: "The Royal Palace",
+    logo: theroyalplalace,
+    link: "https://royal-lime.vercel.app/",
+    category: "Multi-Cuisine Restaurant & Banquet Booking Web App",
+    description:
+      "A luxury culinary platform for a royal Hyderabadi dining and banquet destination, featuring table reservations, interactive digital menus, and banquet inquiry booking.",
+    stack: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    tone: "signal",
   },
 ];
 

@@ -45,7 +45,7 @@ function AboutPage() {
           <Reveal>
             <div className="portrait-art">
               <div className="portrait-grid" />
-              <span className="portrait-mark">N/S</span>
+              <span className="portrait-mark">M/D</span>
               <p>
                 Independent practice
                 <br />
