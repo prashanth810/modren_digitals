@@ -6,7 +6,11 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: `About ${seo.siteName} | Web Developer & Digital Solutions` },
-      { name: "description", content: "A focused digital practice connecting design strategy, modern engineering, and commercial thinking." },
+      {
+        name: "description",
+        content:
+          "A focused digital practice connecting design strategy, modern engineering, and commercial thinking.",
+      },
       { property: "og:title", content: `About ${seo.siteName}` },
       { property: "og:description", content: "Technology, design, and business working together." },
       { property: "og:type", content: "website" },

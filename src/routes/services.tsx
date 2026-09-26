@@ -6,9 +6,16 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: `Web Development & Digital Solutions | ${seo.siteName}` },
-      { name: "description", content: "Web development, frontend engineering, full-stack systems, UI/UX design, and custom business platforms for growth-focused brands." },
+      {
+        name: "description",
+        content:
+          "Web development, frontend engineering, full-stack systems, UI/UX design, and custom business platforms for growth-focused brands.",
+      },
       { property: "og:title", content: `Services | ${seo.siteName}` },
-      { property: "og:description", content: "Design and engineering services that turn ideas into useful digital products." },
+      {
+        property: "og:description",
+        content: "Design and engineering services that turn ideas into useful digital products.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:image", content: seo.image },
       { name: "twitter:card", content: "summary_large_image" },

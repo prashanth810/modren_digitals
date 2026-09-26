@@ -7,9 +7,16 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: `Contact ${seo.siteName} | Start Your Project` },
-      { name: "description", content: `Discuss your website, product, or digital growth goals with ${seo.siteName}.` },
+      {
+        name: "description",
+        content: `Discuss your website, product, or digital growth goals with ${seo.siteName}.`,
+      },
       { property: "og:title", content: `Start a Project | ${seo.siteName}` },
-      { property: "og:description", content: "Share your challenge and start a focused conversation about your next digital product." },
+      {
+        property: "og:description",
+        content:
+          "Share your challenge and start a focused conversation about your next digital product.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:image", content: seo.image },
       { name: "twitter:card", content: "summary_large_image" },
