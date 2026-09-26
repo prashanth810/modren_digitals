@@ -4,24 +4,20 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { CTASection, Reveal, SectionHeading } from "@/components/site/primitives";
 import { HeroScene } from "@/components/three/hero-scene";
-import { benefits, process, projects, services } from "@/data/site";
+import { benefits, process, projects, services, seo } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Modern Web Development & Digital Solutions | Modren Digital" },
-      {
-        name: "description",
-        content:
-          "Professional web development, frontend, full-stack applications and digital solutions for ambitious businesses.",
-      },
-      { property: "og:title", content: "Modren Digital — Modern Digital Experiences" },
-      {
-        property: "og:description",
-        content: "Strategy, design, and engineering for ambitious digital products.",
-      },
+      { title: `${seo.siteName} | Web Developer & Digital Solutions` },
+      { name: "description", content: seo.description },
+      { property: "og:title", content: `${seo.siteName} — Modern Digital Experiences` },
+      { property: "og:description", content: seo.description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: seo.image },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: `${seo.siteName} — Modern Digital Experiences` },
+      { name: "twitter:description", content: seo.description },
     ],
   }),
   component: HomePage,

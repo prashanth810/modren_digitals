@@ -2,23 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/site/contact-form";
 import { PageHero, Reveal } from "@/components/site/primitives";
-import { brand } from "@/data/site";
+import { brand, seo } from "@/data/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Modren Digital | Start Your Project" },
-      {
-        name: "description",
-        content:
-          "Discuss your website, web application, interface, or business platform with Modren Digital.",
-      },
-      { property: "og:title", content: "Start a Project | Modren Digital" },
-      {
-        property: "og:description",
-        content:
-          "Share your challenge and start a focused conversation about your next digital product.",
-      },
+      { title: `Contact ${seo.siteName} | Start Your Project` },
+      { name: "description", content: `Discuss your website, product, or digital growth goals with ${seo.siteName}.` },
+      { property: "og:title", content: `Start a Project | ${seo.siteName}` },
+      { property: "og:description", content: "Share your challenge and start a focused conversation about your next digital product." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: seo.image },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

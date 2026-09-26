@@ -1,18 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BarChart3, Gem, Gauge, Sprout } from "lucide-react";
 import { CTASection, PageHero, Reveal, SectionHeading } from "@/components/site/primitives";
+import { seo } from "@/data/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Modren Digital | Web Developer & Digital Solutions" },
-      {
-        name: "description",
-        content:
-          "A focused digital practice connecting clean design, strong engineering, and commercial thinking.",
-      },
-      { property: "og:title", content: "About Modren Digital" },
+      { title: `About ${seo.siteName} | Web Developer & Digital Solutions` },
+      { name: "description", content: "A focused digital practice connecting design strategy, modern engineering, and commercial thinking." },
+      { property: "og:title", content: `About ${seo.siteName}` },
       { property: "og:description", content: "Technology, design, and business working together." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: seo.image },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

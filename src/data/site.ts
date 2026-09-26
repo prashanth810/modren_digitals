@@ -15,15 +15,39 @@ import {
 import logo from "../data/brand.png";
 
 export const brand = {
-  name: "MODREN DIGITAL",
+  name: "Modren Digital",
   logo,
-  shortName: "",
-  person: "[YOUR NAME]",
+  favicon: logo,
+  shortName: "MD",
+  person: "Prashanth Uppari",
+  tagline: "Web developer, product designer, and digital strategist",
   email: "supportweb329@gmail.com",
   phone: "+91-8106124493",
-  location: "Hyderabad.",
+  location: "Hyderabad, Telangana, India",
   linkedin: "https://www.linkedin.com/in/prashanth-uppari-a3441a233/",
-  instagram: "#",
+  instagram: "https://www.instagram.com/",
+  siteUrl: "https://modrendigital.com",
+  defaultDescription:
+    "Modren Digital builds modern websites, landing pages, and digital experiences for businesses ready to grow online.",
+  keywords: [
+    "web developer",
+    "website designer",
+    "business website",
+    "frontend developer",
+    "full-stack developer",
+    "UI UX design",
+    "digital strategy",
+    "Hyderabad web developer",
+  ],
+};
+
+export const seo = {
+  siteName: brand.name,
+  title: `${brand.name} | Web Developer & Digital Solutions`,
+  description: brand.defaultDescription,
+  url: brand.siteUrl,
+  image: brand.favicon,
+  keywords: brand.keywords.join(", "),
 };
 
 export const navItems = [
