@@ -1,0 +1,18 @@
+{
+  "capabilities": [
+    {"capability":"code","source":"uploaded archive","outcome":"migrate","status":"verified","next_action":"none"},
+    {"capability":"schema","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"records","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"auth identities","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"authorization","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"uploaded file bytes","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"external providers","source":"Resend requested","outcome":"preserve","status":"verified","next_action":"none"},
+    {"capability":"public endpoints","source":"contact form","outcome":"migrate","status":"verified","next_action":"none"},
+    {"capability":"callbacks","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"webhooks","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"schedules","source":"none detected","outcome":"not_applicable","status":"verified","next_action":"none"},
+    {"capability":"secrets","source":"RESEND_API_KEY reference","outcome":"preserve","status":"verified","next_action":"none"},
+    {"capability":"cutover","source":"uploaded archive","outcome":"migrate","status":"verified","next_action":"none"},
+    {"capability":"verification","source":"preview","outcome":"verify","status":"verified","next_action":"none"}
+  ]
+}
