@@ -316,7 +316,8 @@
 .scroll-cue {
   position: absolute;
   bottom: 2rem;
-  left: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: .5rem;

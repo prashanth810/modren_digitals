@@ -113,10 +113,10 @@ function HomePage() {
       <section className="stats-band">
         <div className="shell grid sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { value: 2, suffix: "+", label: "Years experience" },
-            { value: 20, suffix: "+", label: "Projects delivered" },
-            { value: 10, suffix: "+", label: "Technologies" },
-            { value: 100, suffix: "%", label: "Client focus" },
+            { value: 3, suffix: "+", label: "Years experience" },
+            { value: 2, suffix: "", label: "Projects delivered" },
+            { value: 5, suffix: "+", label: "Technologies" },
+            { value: 95, suffix: "%", label: "Client focus" },
           ].map((stat) => (
             <AnimatedStat key={stat.label} {...stat} />
           ))}

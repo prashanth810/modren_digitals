@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BarChart3, Gem, Gauge, Sprout } from "lucide-react";
 import { CTASection, PageHero, Reveal, SectionHeading } from "@/components/site/primitives";
 import { seo } from "@/data/site";
+import brandlogo from "../data/brandlogo.png";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -46,6 +48,7 @@ function AboutPage() {
             <div className="portrait-art">
               <div className="portrait-grid" />
               <span className="portrait-mark">M/D</span>
+              {/* <img src={brandlogo} alt="Brand_logo" className="h-full w-auto" /> */}
               <p>
                 Independent practice
                 <br />
