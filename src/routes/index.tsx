@@ -116,7 +116,7 @@ function HomePage() {
             { value: 3, suffix: "+", label: "Years experience" },
             { value: 2, suffix: "", label: "Projects delivered" },
             { value: 5, suffix: "+", label: "Technologies" },
-            { value: 95, suffix: "%", label: "Client focus" },
+            { value: 99, suffix: "%", label: "Client focus" },
           ].map((stat) => (
             <AnimatedStat key={stat.label} {...stat} />
           ))}
