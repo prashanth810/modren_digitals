@@ -1112,3 +1112,36 @@
     letter-spacing: .06em;
   }
 }
+
+/* ---------- Pricing FAQ accordion animation ---------- */
+@keyframes faq-down {
+  from {
+    height: 0;
+    opacity: 0
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1
+  }
+}
+
+@keyframes faq-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1
+  }
+
+  to {
+    height: 0;
+    opacity: 0
+  }
+}
+
+.faq-content[data-state="open"] {
+  animation: faq-down .3s ease-out
+}
+
+.faq-content[data-state="closed"] {
+  animation: faq-up .25s ease-out
+}
